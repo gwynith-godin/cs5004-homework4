@@ -38,9 +38,6 @@ public class HourlyPaycheck extends Paycheck implements IPaycheck {
     } else {
       totalPay = this.payRate * this.hoursWorked;
     }
-    if (totalPay > 0 && totalPay < 0.01) {
-      return 0.01;
-    }
     return totalPay;
   }
 

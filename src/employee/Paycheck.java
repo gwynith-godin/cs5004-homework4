@@ -19,11 +19,10 @@ public abstract class Paycheck implements IPaycheck {
     if (this.getTotalPay() < 400 && this.getTotalPay() > 0.01) {
       taxedPay = getTotalPay() * 0.90;
       return taxedPay;
-    } else if (this.getTotalPay() > 400) {
+    } else {
       taxedPay = getTotalPay() * 0.85;
-      return taxedPay;
     }
-    return 0.01;
+      return taxedPay;
   }
 
   public String toString() {
