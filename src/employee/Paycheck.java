@@ -22,7 +22,8 @@ public abstract class Paycheck implements IPaycheck {
     } else {
       taxedPay = getTotalPay() * 0.85;
     }
-      return Math.round(taxedPay*100)/100.0;
+      return taxedPay;
+      //return Math.round(taxedPay*100.00)/100.000;
   }
 
   public String toString() {
