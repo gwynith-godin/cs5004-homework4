@@ -14,7 +14,7 @@ public class HourlyPaycheckTest {
   private HourlyPaycheck paycheck2;
   private HourlyPaycheck paycheck3;
   private HourlyPaycheck paycheck4;
-
+  private HourlyPaycheck paycheck5;
   /**
    * Construct HourlyPaycheck objects.
    */
@@ -24,6 +24,8 @@ public class HourlyPaycheckTest {
     paycheck2 = new HourlyPaycheck(33.98, 55);
     paycheck3 = new HourlyPaycheck(13, 15.5);
     paycheck4 = new HourlyPaycheck(0.0034, 10);
+    paycheck5 = new HourlyPaycheck(10.22222, 1);
+
   }
 
   // variable to check if decimal value meets specifications
@@ -45,8 +47,9 @@ public class HourlyPaycheckTest {
   @Test
   public void testGetPayAfterTaxes() {
     assertEquals(680.00, paycheck1.getPayAfterTaxes(), DELTA);
-    assertEquals(1805.1875, paycheck2.getPayAfterTaxes(), DELTA);
+    assertEquals(1805.19, paycheck2.getPayAfterTaxes(), DELTA);
     assertEquals(181.35, paycheck3.getPayAfterTaxes(), DELTA); // less than 400
+    assertEquals(9.20, paycheck5.getPayAfterTaxes(),DELTA);
   }
 
   /**

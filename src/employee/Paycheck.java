@@ -2,6 +2,8 @@ package employee;
 
 import java.text.DecimalFormat;
 
+import java.math.BigDecimal;
+
 public abstract class Paycheck implements IPaycheck {
 
   // hourly paycheck and salary inherit from the Paycheck class
@@ -16,16 +18,20 @@ public abstract class Paycheck implements IPaycheck {
   @Override
   public double getPayAfterTaxes() {
     double taxedPay;
-    if (this.getTotalPay() < 400 && this.getTotalPay() >= 0.01) {
+    double tolerance;
+    if (this.getTotalPay() < 400 && this.getTotalPay() >= 0.001) {
       taxedPay = getTotalPay() * 0.90;
-      return taxedPay;}
-    else if(this.getTotalPay()< 0.01){
-      taxedPay = 0.01;
-    } else {
+      }
+
+    else {
       taxedPay = getTotalPay() * 0.85;
     }
+
+    boolean fail = (BigDecimal.valueOf(taxedPay).scale() > 2);
+    if(fail){
+      return Math.round(taxedPay*100)/100.0;
+    }
       return taxedPay;
-      //return Math.round(taxedPay*100.00)/100.000;
   }
 
   public String toString() {
