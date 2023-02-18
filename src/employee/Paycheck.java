@@ -18,11 +18,8 @@ public abstract class Paycheck implements IPaycheck {
   @Override
   public double getPayAfterTaxes() {
     double taxedPay;
-    double tolerance;
-    if (this.getTotalPay() < 400 && this.getTotalPay() >= 0.001) {
-      taxedPay = getTotalPay() * 0.90;
-      }
-
+    if (this.getTotalPay() < 400 ) {
+      taxedPay = getTotalPay() * 0.90;}
     else {
       taxedPay = getTotalPay() * 0.85;
     }
