@@ -31,7 +31,7 @@ public abstract class Paycheck implements IPaycheck {
 
   public String toString() {
     return "Payment after taxes: "
-            + new DecimalFormat("$ ###.00").format(this.getPayAfterTaxes());
+            + new DecimalFormat("$ ##0.00").format(this.getPayAfterTaxes());
   }
 
 }

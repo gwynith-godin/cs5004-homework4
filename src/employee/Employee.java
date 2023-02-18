@@ -65,7 +65,7 @@ public class Employee {
 
   public String toString() {
     return "Name: " + this.name + "\nID: " + id + "\nPayment after taxes: "
-            + new DecimalFormat("$ ###.00").format(this.delegate.getPayAfterTaxes());
+            + new DecimalFormat("$ ##0.00").format(this.delegate.getPayAfterTaxes());
   }
 }
 
