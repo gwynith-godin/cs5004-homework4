@@ -16,13 +16,13 @@ public abstract class Paycheck implements IPaycheck {
   @Override
   public double getPayAfterTaxes() {
     double taxedPay;
-    if (this.getTotalPay() < 400 && this.getTotalPay() > 0.01) {
+    if (this.getTotalPay() < 400) {
       taxedPay = getTotalPay() * 0.90;
       return taxedPay;
     } else {
       taxedPay = getTotalPay() * 0.85;
     }
-      return taxedPay;
+      return Math.round(taxedPay*100)/100.0;
   }
 
   public String toString() {

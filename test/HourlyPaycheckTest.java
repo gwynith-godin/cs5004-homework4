@@ -45,7 +45,7 @@ public class HourlyPaycheckTest {
   @Test
   public void testGetPayAfterTaxes() {
     assertEquals(680.00, paycheck1.getPayAfterTaxes(), DELTA);
-    assertEquals(1805.1875, paycheck2.getPayAfterTaxes(), DELTA);
+    assertEquals(1805.19, paycheck2.getPayAfterTaxes(), DELTA);
     assertEquals(181.35, paycheck3.getPayAfterTaxes(), DELTA); // less than 400
   }
 
