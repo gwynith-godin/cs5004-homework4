@@ -23,11 +23,12 @@ public abstract class Paycheck implements IPaycheck {
     else {
       taxedPay = getTotalPay() * 0.85;
     }
-
+    /**
     boolean fail = (BigDecimal.valueOf(taxedPay).scale() > 2);
     if(fail){
       return Math.round(taxedPay*100)/100.0;
     }
+     */
       return taxedPay;
   }
 
