@@ -1,9 +1,9 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import employee.SalariedPaycheck;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Class that tests the SalariedPaycheck Class.
@@ -36,8 +36,10 @@ public class SalariedPaycheckTest {
   public void testGetTotalPay() {
     assertEquals(7730.77, paycheck1.getTotalPay(), DELTA);
     assertEquals(1949.96, paycheck2.getTotalPay(), DELTA);
-    assertEquals(0.01, paycheck3.getTotalPay(), DELTA);
-    assertEquals(0.01, paycheck4.getTotalPay(), DELTA);
+
+    // check that the tolerance is not in effect until taxes are applied.
+    assertEquals(0.0096, paycheck3.getTotalPay(), DELTA);
+    assertEquals(0.0096, paycheck4.getTotalPay(), DELTA);
   }
 
   /**
@@ -47,7 +49,11 @@ public class SalariedPaycheckTest {
   public void testGetPayAfterTaxes() {
     assertEquals(6571.15, paycheck1.getPayAfterTaxes(), DELTA);
     assertEquals(1657.47, paycheck2.getPayAfterTaxes(), DELTA);
+
+    // check if reducing hours to negative number changes the hours worked.
+    // hours should not be changed if this is the case.
     assertEquals(0.01, paycheck3.getPayAfterTaxes(), DELTA); // less than 0.01
+    assertEquals(0.01, paycheck4.getPayAfterTaxes(), DELTA);
   }
 
   /**
@@ -58,6 +64,7 @@ public class SalariedPaycheckTest {
   public void testGetPayRate() {
     assertEquals(100500.00, paycheck1.getPayRate(), DELTA);
     assertEquals(0.5, paycheck3.getPayRate(), DELTA);
+
   }
 
   /**
@@ -66,7 +73,6 @@ public class SalariedPaycheckTest {
    */
   @Test(expected = IllegalArgumentException.class)
   public void testIllegalArgument_PayRate() {
-
     SalariedPaycheck paycheck5 = new SalariedPaycheck(-500, 2);
   }
 
@@ -75,14 +81,17 @@ public class SalariedPaycheckTest {
    * If payInterval not equal to 1, 2, or 4.
    */
   @Test(expected = IllegalArgumentException.class)
-  public void testIllegalArgument_HoursWorked() {
+  public void testIllegalArgument_badInterval() {
     SalariedPaycheck paycheck6 = new SalariedPaycheck(6000.00, 3);
   }
 
+  /**
+   * Test the SalariedPaycheck toString() method.
+   */
   @Test
   public void testToString() {
     String testPaycheck1 = "Payment after taxes: $ 6571.15";
-    String testPaycheck3 = "Payment after taxes: $ 000.01";
+    String testPaycheck3 = "Payment after taxes: $ 0.01";
 
     assertEquals(testPaycheck1, paycheck1.toString());
     assertEquals(testPaycheck3, paycheck3.toString());

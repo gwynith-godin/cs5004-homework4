@@ -2,13 +2,11 @@ package employee;
 
 import java.text.DecimalFormat;
 
-import java.math.BigDecimal;
-
+/**
+ * Abstract class that represents a paycheck.
+ * Implements the IPaycheck protocol.
+ */
 public abstract class Paycheck implements IPaycheck {
-
-  // hourly paycheck and salary inherit from the Paycheck class
-  public Paycheck() {
-  }
 
   /**
    * Method that returns the pay after taxes for an employee.
@@ -28,6 +26,11 @@ public abstract class Paycheck implements IPaycheck {
     }
       return taxedPay;
   }
+
+  /**
+   * Creates a string representing the payment after taxes for an employee.
+   * @return a string
+   */
 
   public String toString() {
     return "Payment after taxes: "

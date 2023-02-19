@@ -2,6 +2,8 @@ package employee;
 
 /**
  * Class that represents an hourly employee paycheck.
+ * Implements the IPaycheck protocol.
+ * Extends Paycheck Abstract class.
  */
 public class HourlyPaycheck extends Paycheck implements IPaycheck {
 
@@ -69,7 +71,7 @@ public class HourlyPaycheck extends Paycheck implements IPaycheck {
    */
   public void addHoursWorked(double hoursAdded) {
     double newHours = this.hoursWorked + hoursAdded;
-    if (newHours > 0) {
+    if (newHours >= 0) {
       this.hoursWorked = newHours;
     }
   }

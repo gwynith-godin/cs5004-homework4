@@ -1,9 +1,10 @@
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import employee.HourlyPaycheck;
 
-import static org.junit.Assert.assertEquals;
 
 /**
  * Class that tests the HourlyPaycheck Class.
@@ -50,6 +51,10 @@ public class HourlyPaycheckTest {
     assertEquals(1805.1875, paycheck2.getPayAfterTaxes(), DELTA);
     assertEquals(181.35, paycheck3.getPayAfterTaxes(), DELTA); // less than 400
     assertEquals(9.20, paycheck5.getPayAfterTaxes(),DELTA);
+
+    // Test tolerance if pay after taxes < 1 cent.
+    HourlyPaycheck paycheck6 = new HourlyPaycheck(.005,1);
+    assertEquals(0.01, paycheck6.getPayAfterTaxes(),DELTA);
   }
 
   /**
@@ -83,10 +88,14 @@ public class HourlyPaycheckTest {
     assertEquals(70.00, paycheck1.getHoursWorked(), DELTA);
     assertEquals(41.00, paycheck2.getHoursWorked(), DELTA);
 
-    // check if reducing hours to negative number changes.
+    // check if reducing hours to negative number changes the hours worked.
     // hours should not be changed if this is the case.
     paycheck3.addHoursWorked(-16);
     assertEquals(15.5, paycheck3.getHoursWorked(), DELTA);
+
+    // hours CAN equal 0.
+    paycheck5.addHoursWorked(-1);
+    assertEquals(0, paycheck5.getHoursWorked(), DELTA);
   }
 
   /**
@@ -118,6 +127,9 @@ public class HourlyPaycheckTest {
     HourlyPaycheck paycheck5 = new HourlyPaycheck(-8, 50);
   }
 
+  /**
+   * Test the HourlyPaycheck toString() method.
+   */
   @Test
   public void testToString() {
     String testPaycheck1 = "Payment after taxes: $ 680.00";
@@ -125,7 +137,5 @@ public class HourlyPaycheckTest {
 
     assertEquals(testPaycheck1, paycheck1.toString());
     assertEquals(testPaycheck2, paycheck2.toString());
-
   }
-
 }

@@ -1,5 +1,10 @@
 package employee;
 
+/**
+ * Class that represents a salaried employee paycheck.
+ * Implements the IPaycheck protocol.
+ * Extends Paycheck Abstract class.
+ */
 public class SalariedPaycheck extends Paycheck implements IPaycheck {
   private double payRate;
   private double payInterval;
@@ -8,7 +13,7 @@ public class SalariedPaycheck extends Paycheck implements IPaycheck {
    * Constructor for the salary paycheck employee.
    *
    * @param payRate     the pay rate of the employee (YTD).
-   * @param payInterval the pay interval -> weekly, bi-weekly, or quarterly.
+   * @param payInterval the pay interval: weekly, bi-weekly, or quarterly.
    * @throws IllegalArgumentException if the pay rate or pay interval is < 0.
    */
   public SalariedPaycheck(double payRate, int payInterval)
@@ -34,9 +39,11 @@ public class SalariedPaycheck extends Paycheck implements IPaycheck {
   public double getTotalPay() {
     double totalPay;
     totalPay = (getPayRate() / 52) * this.payInterval;
+    /**
     if (totalPay > 0 && totalPay < 0.01) {
       return 0.01;
     }
+     */
     return totalPay;
   }
 
