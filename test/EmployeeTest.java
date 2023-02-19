@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import employee.Employee;
 import employee.IPaycheck;
-
 import org.junit.Before;
 import org.junit.Test;
 

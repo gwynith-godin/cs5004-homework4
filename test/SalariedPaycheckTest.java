@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertEquals;
 
 import employee.SalariedPaycheck;
-
 import org.junit.Before;
 import org.junit.Test;
 
