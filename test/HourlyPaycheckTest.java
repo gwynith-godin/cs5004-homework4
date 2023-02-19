@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import employee.HourlyPaycheck;
 
-
 /**
  * Class that tests the HourlyPaycheck Class.
  * Tests HourlyPaycheck independently.
@@ -16,6 +15,7 @@ public class HourlyPaycheckTest {
   private HourlyPaycheck paycheck3;
   private HourlyPaycheck paycheck4;
   private HourlyPaycheck paycheck5;
+
   /**
    * Construct HourlyPaycheck objects.
    */
@@ -50,11 +50,11 @@ public class HourlyPaycheckTest {
     assertEquals(680.00, paycheck1.getPayAfterTaxes(), DELTA);
     assertEquals(1805.1875, paycheck2.getPayAfterTaxes(), DELTA);
     assertEquals(181.35, paycheck3.getPayAfterTaxes(), DELTA); // less than 400
-    assertEquals(9.20, paycheck5.getPayAfterTaxes(),DELTA);
+    assertEquals(9.20, paycheck5.getPayAfterTaxes(), DELTA);
 
     // Test tolerance if pay after taxes < 1 cent.
-    HourlyPaycheck paycheck6 = new HourlyPaycheck(.005,1);
-    assertEquals(0.01, paycheck6.getPayAfterTaxes(),DELTA);
+    HourlyPaycheck paycheck6 = new HourlyPaycheck(.005, 1);
+    assertEquals(0.01, paycheck6.getPayAfterTaxes(), DELTA);
   }
 
   /**

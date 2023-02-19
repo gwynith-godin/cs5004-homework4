@@ -23,7 +23,7 @@ public class Employee {
    * @throws IllegalArgumentException if name/ID are null or empty strings.
    */
   public Employee(String name, String id, double payRate, int payInterval, boolean isManager)
-          throws IllegalArgumentException{
+          throws IllegalArgumentException {
     if (name == null || name == "") {
       throw new IllegalArgumentException("Name cannot be empty or null.");
     }
@@ -70,6 +70,7 @@ public class Employee {
 
   /**
    * Returns an IPaycheck Interface object.
+   *
    * @return IPaycheck object
    */
   public IPaycheck getPaycheck() {
@@ -78,6 +79,7 @@ public class Employee {
 
   /**
    * String method to print out the employee name, id, and pay after taxes.
+   *
    * @return a string of an employee description.
    */
   public String toString() {

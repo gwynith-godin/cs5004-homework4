@@ -5,6 +5,7 @@
 public class Main {
   /**
    * Method that generates a string.
+   *
    * @param args a string.
    */
   public static void main(String[] args) {

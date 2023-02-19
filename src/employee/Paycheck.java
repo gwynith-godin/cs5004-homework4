@@ -17,18 +17,19 @@ public abstract class Paycheck implements IPaycheck {
   public double getPayAfterTaxes() {
     double taxedPay;
     if (this.getTotalPay() < 400) {
-      taxedPay = getTotalPay() * 0.90;}
-    else {
+      taxedPay = getTotalPay() * 0.90;
+    } else {
       taxedPay = getTotalPay() * 0.85;
     }
-    if(taxedPay > 0 && taxedPay < 0.01){
+    if (taxedPay > 0 && taxedPay < 0.01) {
       taxedPay = 0.01;
     }
-      return taxedPay;
+    return taxedPay;
   }
 
   /**
    * Creates a string representing the payment after taxes for an employee.
+   *
    * @return a string
    */
 

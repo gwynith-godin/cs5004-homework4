@@ -39,11 +39,6 @@ public class SalariedPaycheck extends Paycheck implements IPaycheck {
   public double getTotalPay() {
     double totalPay;
     totalPay = (getPayRate() / 52) * this.payInterval;
-    /**
-    if (totalPay > 0 && totalPay < 0.01) {
-      return 0.01;
-    }
-     */
     return totalPay;
   }
 

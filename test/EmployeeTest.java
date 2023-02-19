@@ -42,6 +42,7 @@ public class EmployeeTest {
    * Method that creates an hourly and salaried paycheck instance.
    * Needed to test the type return of the getPaycheck() method.
    * Then confirms if they are an IPaycheck instance.
+   *
    * @return a boolean
    */
 
@@ -104,7 +105,7 @@ public class EmployeeTest {
    * Tests an HourlyPaycheck object with null ID.
    */
   @Test(expected = IllegalArgumentException.class)
-  public void testIllegalArgument_NoIDNullHourly() {
+  public void testIllegalArgument_NoIdNullHourly() {
     new Employee("Danny Devito", null, 50.00, 2);
   }
 
@@ -114,7 +115,7 @@ public class EmployeeTest {
    */
 
   @Test(expected = IllegalArgumentException.class)
-  public void testIllegalArgument_NoIDNullSalaried() {
+  public void testIllegalArgument_NoIdNullSalaried() {
     new Employee("Danny Devito", null, 50.00, 2, true);
   }
 
